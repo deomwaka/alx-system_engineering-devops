@@ -1,2 +1,2 @@
 #!/bin/bash
-find . *.git printf '%f\n'
+find . *.gif printf '%f\n'
