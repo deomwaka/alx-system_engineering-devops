@@ -25,7 +25,7 @@ frontend www-http
         default_backend www-backend
 
 frontend www-https
-        bind *:443 ssl crt /etc/haproxy/certs/www.deomwaka.tech.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.deomwaka.tech/www.deomwaka.tech.pem
         http-request set-header X-Forwarded-Proto https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
@@ -38,3 +38,4 @@ backend www-backend
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
+
